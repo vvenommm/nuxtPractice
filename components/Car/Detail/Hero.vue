@@ -7,17 +7,15 @@
         alt=""
         class="h-[100px]"
       />
-      <h1 class="mt-10 text-4xl">Volvo X40</h1>
+      <h1 class="mt-10 text-4xl">{{ car.name }}</h1>
       <div
         class="text-slate-500 flex text-lg mt-3 border-b pb-5 justify-between"
       >
-        <div class="flex">
-          <p class="mr-2">5 seats</p>
-          <p class="mr-2"></p>
-          <p class="mr-2">55,4344 miles</p>
+        <div v-for="feature in features" :key="feature" class="flex">
+          <p class="mr-2">{{ feature }}</p>
         </div>
         <div>
-          <p class="font-bold text-2xl">$25.999</p>
+          <p class="font-bold text-2xl">${{ car.price }}</p>
         </div>
       </div>
     </div>
@@ -25,6 +23,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps({
+  car: Object,
+});
+</script>
 
 <style lang="scss" scoped></style>

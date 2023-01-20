@@ -21,7 +21,7 @@
     <!-- CAR SIDE BAR -->
 
     <!-- CAR CARD -->
-    <CarCard />
+    <CarCards />
     <!-- CAR CARD -->
     <!-- </div>
     </div> -->

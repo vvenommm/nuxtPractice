@@ -4,18 +4,20 @@
 
     <!-- CAR DETAIL PAGE -->
     <div
+      v-if="car"
       class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-4/5"
     >
+      {{ car }}
       <!-- CAR HERO -->
-      <CarDetailHero />
+      <CarDetailHero :car="car" />
       <!-- CAR HERO -->
 
       <!-- CAR ATTRIBUTE -->
-      <CarDetailAttributes />
+      <CarDetailAttributes :features="car.features" />
       <!-- CAR ATTRIBUTE -->
 
       <!-- CAR DESCRIPTION -->
-      <CarDetailDescription />
+      <CarDetailDescription :description="car.description" />
       <!-- CAR DESCRIPTION -->
 
       <!-- CAR CONTACT -->
@@ -28,6 +30,7 @@
 
 <script setup>
 const route = useRoute();
+const { cars } = useCars();
 
 const { toTitleCase } = useUtilities();
 useHead({
@@ -42,6 +45,12 @@ useHead({
 
 definePageMeta({
   layout: 'custom',
+});
+
+const car = computed(() => {
+  return cars.find((c) => {
+    return c.id === parseInt(route.params.id);
+  });
 });
 </script>
 
