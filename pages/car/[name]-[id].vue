@@ -52,6 +52,17 @@ const car = computed(() => {
     return c.id === parseInt(route.params.id);
   });
 });
+<<<<<<< HEAD
+=======
+
+// custom error
+if (!car.value) {
+  throw createError({
+    statusCode: 404,
+    message: `Car with ID of ${route.params.id} does not exist`,
+  });
+}
+>>>>>>> de05561 (에러 페이지, 데이터 연결)
 </script>
 
 <style lang="scss" scoped></style>
