@@ -10,13 +10,30 @@
       class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-4/5"
     > -->
     <div class="mt-32 flex">
-      <!-- CAR SIDE BAR -->
-      <CarSideBar />
-      <!-- CAR SIDE BAR -->
+      <NuxtErrorBoundary>
+        <!-- CAR SIDE BAR -->
+        <CarSideBar />
+        <!-- CAR SIDE BAR -->
 
-      <!-- CAR CARD -->
-      <NuxtPage />
-      <!-- CAR CARD -->
+        <!-- CAR CARD -->
+        <NuxtPage />
+        <!-- CAR CARD -->
+        <template #error="{ error }">
+          <div class="text-center mx-auto flex flex-col">
+            <h1 class="text-5xl text-red-600 mb-4">
+              Sorry, Something went wrong~
+            </h1>
+            <code>{{ error }}</code>
+            <button
+              class="text-white bg-blue-400 px-10 py-3 rounded mt-4"
+              @click="error.value = null"
+            >
+              Go Back
+            </button>
+          </div>
+        </template>
+      </NuxtErrorBoundary>
+      <!-- 에러 발생하면 내부 컴포넌트 렌더링 X -->
     </div>
     <!-- </div> -->
     <!-- CARS PAGE -->
