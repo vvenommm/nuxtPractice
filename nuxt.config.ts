@@ -4,5 +4,5 @@
 
 export default defineNuxtConfig({
   telemetry: true,
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image-edge'],
 });

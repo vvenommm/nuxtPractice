@@ -2,9 +2,10 @@
   <div>
     <!-- CAR CARD -->
     <div
-      class="shadow border w-full overflow-hidden mb-5 cursor-pointer h-[200px]"
+      class="relative shadow border w-full overflow-hidden mb-5 cursor-pointer h-[200px]"
       @click="navigateTo(`/car/${car.name}-${car.id}`)"
     >
+      <img class="absolute w-7 right-5 top-2 z-20" :src="heartOutline" />
       <div class="flex h-full">
         <img :src="car.url" alt="" class="h-[200px]" />
         <div class="p-4 flex flex-col">
@@ -21,6 +22,9 @@
 </template>
 
 <script setup>
+import heartFilled from '@/assets/heartFilled.png';
+import heartOutline from '@/assets/heartOutline.png';
+
 const props = defineProps({
   car: Object,
 });
